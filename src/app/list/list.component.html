@@ -1,0 +1,20 @@
+
+<div >
+
+  <div *ngIf="list.length>0; else loading">
+  <app-list-item
+    *ngFor="let post of list"
+    [post]="post"
+  ></app-list-item>
+</div>
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
+
+  <pagination 
+    [currentPage]="currentPage"
+    [limit]="10"
+    [total]="totalPosts"
+    (changePage)="changePage($event)"
+  ></pagination>
+</div>
